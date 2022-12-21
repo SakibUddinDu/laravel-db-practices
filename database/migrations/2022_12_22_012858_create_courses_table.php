@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('image_url',255)->nullable();
             $table->text('description');
             $table->text('link');
+            $table->text('resources');
             $table->unsignedBigInteger('submitted_by');
             $table->unsignedBigInteger('duration');
             $table->unsignedBigInteger('platform_id');

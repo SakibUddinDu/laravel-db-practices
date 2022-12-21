@@ -9,6 +9,7 @@ use App\Models\Course;
 use App\Models\Platform;
 use App\Models\Series;
 use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 
@@ -38,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
-        $platforms=['w3school', 'W3resources', 'Dev.io', 'LWS', 'Stacklearner'];
+        $platforms=['w3school', 'W3resources', 'Dev.io', 'LWS', 'StackLearner'];
         foreach($platforms as $item){
             Platform::create([
                     'name'=>$item,
@@ -46,7 +47,7 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-
+        User::factory(50)->create();//error solved by this line
         Course::factory(50)->create();
 
 

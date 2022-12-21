@@ -20,14 +20,14 @@ class CourseFactory extends Factory
     {
         return [
             // 'title'=>fake()->text(40),
-            'title'=>fake()->words(5),
+            'title'=>fake()->sentence,
             'book' =>rand(0,1),
             'year'  => fake()->year,
             // 'price'   => rand(1.00,50.00),
-            'price'   => rand(0,1)?rand(1,100):null,
+            'price'=> 00,
             'image_url' => fake()->imageUrl(),
-            // 'description' => fake()->paragraphs(3,true),
-            'description' => "test",
+            'description' => fake()->paragraphs(3,true),
+            // 'description' => "test",
             'link' => fake()->url(),
             'resources'=> rand(0,10),
             'submitted_by' => User::all()->random()->id,
