@@ -24,7 +24,7 @@ class CourseFactory extends Factory
             'book' =>rand(0,1),
             'year'  => fake()->year,
             // 'price'   => rand(1.00,50.00),
-            'price'=> 00,
+            'price'=> 0.0,
             'image_url' => fake()->imageUrl(),
             'description' => fake()->paragraphs(3,true),
             // 'description' => "test",
