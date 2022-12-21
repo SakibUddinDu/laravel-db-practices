@@ -15,19 +15,19 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 256);
+            $table->string('title', 256);
             $table->unsignedBigInteger('book')->default(0);
             $table->unsignedBigInteger('year');
             $table->float('price')->default(0.00);
             $table->string('image_url',255)->nullable();
-            $table->text('content');
+            $table->text('description');
             $table->text('link');
             $table->unsignedBigInteger('submitted_by');
             $table->unsignedBigInteger('duration');
             $table->unsignedBigInteger('platform_id');
 
-            // $table->foreign('submitted_by')->references('id')->on('users')->onDelete('cascade');
-            // $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');
+            $table->foreign('submitted_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::create('course_topic', function (Blueprint $table) {

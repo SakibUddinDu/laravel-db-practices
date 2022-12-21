@@ -4,8 +4,14 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Author;
+use App\Models\Course;
+use App\Models\Platform;
 use App\Models\Series;
+use App\Models\Topic;
 use Illuminate\Database\Seeder;
+
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,6 +31,27 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
+        $topics=['Eloquent', 'Validation', 'Authentication', 'Testing', 'Refactoring'];
+        foreach($topics as $item){
+            Topic::create([
+                    'name'=>$item,
+                ]
+            );
+        }
+        $platforms=['w3school', 'W3resources', 'Dev.io', 'LWS', 'Stacklearner'];
+        foreach($platforms as $item){
+            Platform::create([
+                    'name'=>$item,
+                ]
+            );
+        }
+
+
+        Course::factory(50)->create();
+
+
+        // $courses = Course::all();
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
