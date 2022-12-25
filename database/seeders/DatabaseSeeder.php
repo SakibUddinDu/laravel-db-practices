@@ -46,12 +46,29 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
+        $authors=['Sakib Uddin', 'Rasel Ahmed', 'Foyz Ullah', 'HM Nayeem', 'Sumit Saha'];
+        foreach($authors as $item){
+            Author::create([
+                    'name'=>$item,
+                ]
+            );
+        }
 
         User::factory(50)->create();//error solved by this line
         Course::factory(50)->create();
 
+        $courses = Course::all();
 
-        // $courses = Course::all();
+        foreach ($courses as $course) {
+            $topics = Topic::all()->random(rand(1,5))->pluck('id')->toArray();
+            $course->topics()->attach($topics);
+
+            $authors = Author::all()->random(rand(1,5))->pluck('id')->toArray();
+            $course->authors()->attach($authors);
+
+            $series = Series::all()->random(rand(1,5))->pluck('id')->toArray();
+            $course->series()->attach($series);
+        }
 
         // \App\Models\User::factory(10)->create();
 
